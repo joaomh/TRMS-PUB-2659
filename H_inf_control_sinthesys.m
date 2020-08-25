@@ -60,9 +60,8 @@ d = K.d;
 
 % Controller order reduction
 [Kr,info_add] = reduce(K,6);
-% [Kr,info] = reduce(K,10,'ErrorType','mult'); % select BSTMR
-%  figure(4), clf
-%  bode(K,'b',Kr,'r'), grid on
+figure(4), clf
+bode(K,'b',Kr,'r'), grid on
 
 a = Kr.a;
 b = Kr.b;
