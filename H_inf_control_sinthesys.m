@@ -12,9 +12,6 @@ load 'all_tfs'
 Kp1 = 0.95;
 Kp2 = 0.8;
 
-% Yaw ok, pitch wtf
-% Kp2 = 2;
-
 % G = [tf11 tf12; tf21 tf22];
 s = tf('s');
 H1p = 1.359 / ( s^3 + 0.9973*s^2 + 4.7868*s + 4.278 );
