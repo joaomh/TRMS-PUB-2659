@@ -18,10 +18,7 @@ H1p = 1.359 / ( s^3 + 0.9973*s^2 + 4.7868*s + 4.278 );
 H2p = 3.60 / ( s^3 + 6*s^2 + 5*s );
 G = [H1p/(1 + H1p*Kp1) 0; 0 H2p/(1 + H2p*Kp2)];
 G = minreal(G);
-%den1 = tf22*tf11 - tf12*tf21;
-%Gp1 = den1/tf22;
-%Gp2 = den1/tf11;
-%G = [1/(1 + Kp1*Gp1) 0; 0 1/(1 + Kp2*Gp2)];
+
 % Weighting functions
 Wp1 = tf([1 10],[1 0.001]);
 Wp1 = [Wp1 0; 0 Wp1]; %% Penalize Sensitivity Function
@@ -41,7 +38,7 @@ P = augw(G,Wp1,Wu,W3);
 L = G*K;
 S = inv(eye(2)+L);
 T = eye(2)-S;
-%
+
 % figure(1), clf
 % sigma(S,T,{0.1, 10});
 % legend('T' ,'inv(Wt)')
